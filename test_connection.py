@@ -38,6 +38,9 @@ try:
         cursor.executemany(sql_insert,datos)
         conexion.commit
         print(f'Tabla camapanas_marketing creada con {cursor.rowcount} registros')
+        cursor.execute("""SELECT * FROM campanas_marketing""")
+        for i in cursor.fetchall():
+            print(i)
 except Exception as e:
     print(f'Error al conectar a la base de datos:{e}')
 
